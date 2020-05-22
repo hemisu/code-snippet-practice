@@ -14,7 +14,7 @@ e.g. <https://github.com/gyuho/learn>
 <br><br>
 ## js
 - [*模块化: commonjs的简单实现*](/docs/js/commonjs)
-- 
+- [*fp: monad概念*](/docs/fp)
 
 [↑ top](#contents)
 <br><br>
