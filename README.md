@@ -5,16 +5,35 @@ e.g. <https://github.com/gyuho/learn>
 
 <br><hr>
 
-### Contents
-- [js](#js)
-- 
+## Contents
+- code-snippet-practice 笔记库
+  - [js](#js)
+  - [css](#css)
+  - [algorithm](#algorithm)
 
 [↑ top](#contents)
 
-<br><br>
+<br>
+
 ## js
 - [*模块化: commonjs的简单实现*](/docs/js/commonjs)
 - [*fp: monad概念*](/docs/fp)
 
 [↑ top](#contents)
-<br><br>
+
+<br>
+
+## css
+- [*弹性动画*](/docs/css/animation-swing.js)
+- [*base64转成图片*](/docs/css/base64img.js)
+
+[↑ top](#contents)
+
+<br>
+
+## algorithm
+- [*io例子*](docs/algorithm/ioexample.js)
+
+[↑ top](#contents)
+
+<br>
