@@ -53,7 +53,7 @@ const urls = [100, 500, 300, 200]
 2. 如果限制并发数成功，得到的结果应该是 `[100, 300, 500, 200]`
 
 如图所示
-![](.\img\1.测试用例.png)
+![](https://github.com/hemisu/code-snippet-practice/edit/master/docs/js/async/img/1.测试用例.png)
 
 
 ## 尝试1. 失败的第一次
@@ -74,7 +74,7 @@ main()
 执行得到的结果是 `Array(4) [100, 500, 200, 300]`，和我们前面提到的不符鸭，画个图康康
 
 
-![](.\img\2.简单实现.png)
+![](https://github.com/hemisu/code-snippet-practice/edit/master/docs/js/async/img/2.简单实现.png)
 
 很显然，这个是不符合我们要求的；我们不可能等到这两个通道里最晚的执行完毕后再发起下一波请求。
 
