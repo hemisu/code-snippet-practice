@@ -74,7 +74,7 @@ main()
 执行得到的结果是 `Array(4) [100, 500, 200, 300]`，和我们前面提到的不符鸭，画个图康康
 
 
-![](https://github.com/hemisu/code-snippet-practice/blob/master/docs/js/asyncimg/2.简单实现.png)
+![](https://github.com/hemisu/code-snippet-practice/blob/master/docs/js/async/img/2.简单实现.png)
 
 很显然，这个是不符合我们要求的；我们不可能等到这两个通道里最晚的执行完毕后再发起下一波请求。
 
