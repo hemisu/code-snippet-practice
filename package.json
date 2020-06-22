@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "yaassertion": "^1.0.2"
+  },
+  "devDependencies": {
+    "delay": "^4.3.0",
+    "p-limit": "^3.0.1",
+    "random-int": "^2.0.1"
   }
 }

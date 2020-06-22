@@ -1,3 +1,7 @@
+const pLimit = require('p-limit')
+const delay = require('delay')
+const randomInt = require('random-int')
+
 const results = [];
 const timeout = i =>
   new Promise(resolve =>
@@ -47,47 +51,77 @@ const urls = [100, 500, 300, 200]
 // }
 // limitRun()
 
-class LimitPool {
-  constructor(max) {
-    this._max = max
-    this._idle = 0
-    this._queue = []
-  }
+// class LimitPool {
+//   constructor(max) {
+//     this._max = max
+//     this._idle = 0
+//     this._queue = []
+//   }
 
-  call(fn, ...args) {
-    return new Promise((resolve, reject) => {
-      const task = this._createTask(fn, args, resolve, reject)
-      if(this._idle >= this._max) {
-        // 大于目前通道数 放入队列中
-        this._queue.push(task)
-      } else {
-        task()
-      }
-    })
-  }
+//   call(fn, ...args) {
+//     return new Promise((resolve, reject) => {
+//       const task = this._createTask(fn, args, resolve, reject)
+//       if(this._idle >= this._max) {
+//         // 大于目前通道数 放入队列中
+//         this._queue.push(task)
+//       } else {
+//         task()
+//       }
+//     })
+//   }
 
-  _createTask(fn, args, _resolve, _reject) {
-    // 惰性计算 如果返回，会直接计算fn，Promise的构造函数是直接运行的，不会异步执行
-    return () => {
-      fn(...args)
-      .then(_resolve)
-      .catch(_reject)
-      .finally(() => {
-        this._idle--
-        if (this._queue.length) {
-          const task = this._queue.shift()
-          task()
-        } else {
-          // console.log('队列清空完毕')
-        }
-      })
-      this._idle++
-    }
-  }
-}
+//   _createTask(fn, args, _resolve, _reject) {
+//     // 惰性计算 如果返回，会直接计算fn，Promise的构造函数是直接运行的，不会异步执行
+//     return () => {
+//       fn(...args)
+//       .then(_resolve)
+//       .catch(_reject)
+//       .finally(() => {
+//         this._idle--
+//         if (this._queue.length) {
+//           const task = this._queue.shift()
+//           task()
+//         } else {
+//           // console.log('队列清空完毕')
+//         }
+//       })
+//       this._idle++
+//     }
+//   }
+// }
 
-const limitPool = new LimitPool(2)
-for(let i of urls) {
-  console.log(i)
-  limitPool.call(timeout, i).then(() => console.log(results))
-}
+// const limitPool = new LimitPool(2)
+// for(let i of urls) {
+//   console.log(i)
+//   limitPool.call(timeout, i).then(() => console.log(results))
+// }
+
+// const limit = pLimit(2);
+let running = 0;
+
+const limit = pLimit(2);
+
+// const input = Array.from({length: 100}, 
+//   () => limit(async () => {
+//   running++;
+//   console.log(running)
+//   await delay(randomInt(30, 200));
+//   running--;
+// }));
+
+// const input = [
+//   limit(async () => {await timeout(100)}),
+//   limit(async () => {await timeout(500)}),
+//   // limit(async () => await timeout(300)),
+//   // limit(async () => await timeout(200)),
+// ]
+(async () => {
+	// Only one promise is run at once
+	const result = await Promise.all([
+    limit(() => timeout(100)),
+    limit(() => timeout(500)),
+    // limit(async () => await timeout(300)),
+    // limit(async () => await timeout(200)),
+  ]);
+    console.log(result);
+})();
