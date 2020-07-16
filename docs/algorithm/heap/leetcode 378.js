@@ -45,7 +45,7 @@ Heap.prototype.buildHeap = function() {
   // for(let i = Math.floor(this.items.length / 2); i >= 1; i--) {
   //   this.heapifyT2B(i)
   // }
-  // 而使用自顶向上建堆，需要从头开始刷新
+  // 而使用自顶向下建堆，需要从头开始刷新
   for(let i = 1; i < this.items.length; i++) {
     this.heapifyB2T(i)
   }
