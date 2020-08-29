@@ -138,6 +138,8 @@ class Ticket {
     const hallData = {
       show_id: 506,
       param: Buffer.from('{"date":"2020-07-30","period":["88,11:00,12:00"],"money":40,"total_fee":40}').toString('base64')
+      // show_id: 507,
+      // param: Buffer.from('{"date":"2020-08-13","period":["88,11:00,12:00"],"money":40,"total_fee":40}').toString('base64')
     }
     const Referer = new URL(querystring.stringify(hallData),'https://xihuwenti.juyancn.cn/wechat/order/index').href
     axios.post('https://xihuwenti.juyancn.cn/wechat/order/add',
@@ -313,13 +315,13 @@ class SetInter {
 // })
 
 /** 授权 Cookie，需要手动更换 */
-const authCookie = 'CNZZDATA1274723626=613630465-1595841157-https%253A%252F%252Fxihuwenti.juyancn.cn%252F%7C1595930680; WECHAT_OPENID=oAKYc08e1j34MLlUcw8hversGNLY; PHPSESSID=btl3j6lsr35c9gc1m7dc8jt924; UM_distinctid=1738f8b9b4f11e-0cca3e8dc55c17-54697f2d-5a900-1738f8b9b50217'
+const authCookie = 'UM_distinctid=1739388f8d9340-0cb31a50f22b7-5437971-4a574-1739388f8da634; PHPSESSID=h71jt2kjd7if1brvm6fl4n3dj0; CNZZDATA1274723626=1873336636-1595902902-%7C1596930725'
 const ticket = new Ticket(authCookie)
 // ticket.getAvaliableHallBase64({ day: 4 }).then((res) => console.log(res))
-// ticket.requestTicket()
+ticket.requestTicket()
 // ticket.getOrderList()
 // 取消订单
-ticket.cancelOrder({ orderId: 42303 })
+// ticket.cancelOrder({ orderId: 42303 })
 // 只定一场
 // {"date":"2020-07-30","period":["90,10:00,11:00"],"money":40,"total_fee":40}
 // 连定两场
