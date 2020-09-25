@@ -120,8 +120,8 @@ const limit = pLimit(2);
 	const result = await Promise.all([
     limit(() => timeout(100)),
     limit(() => timeout(500)),
-    // limit(async () => await timeout(300)),
-    // limit(async () => await timeout(200)),
+    limit(async () => await timeout(300)),
+    limit(async () => await timeout(200)),
   ]);
     console.log(result);
 })();
