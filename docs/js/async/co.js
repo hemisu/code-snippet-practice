@@ -1,3 +1,5 @@
+const e = require("express");
+
 const getData = () => new Promise(resolve => setTimeout(() => resolve("data"), 1000))
   
 var test = asyncToGenerator(
