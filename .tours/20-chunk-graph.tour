@@ -1,0 +1,10 @@
+{
+  "title": "20-chunk-graph",
+  "steps": [
+    {
+      "file": "webpack-meetup-2018-05/one-day-bundler/20-chunk-graph/_graph.txt",
+      "line": 17,
+      "description": "默认的打包会输出到 `./dist/main.js`"
+    }
+  ]
+}

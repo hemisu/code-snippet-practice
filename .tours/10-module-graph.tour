@@ -1,0 +1,45 @@
+{
+  "title": "10-module-graph",
+  "steps": [
+    {
+      "file": "webpack-meetup-2018-05/README.md",
+      "line": 4,
+      "description": "打包react-bundle\n>> cd webpack-meetup-2018-05 && webpack --config ./react-bundle/webpack.config.js"
+    },
+    {
+      "file": "webpack-meetup-2018-05/README.md",
+      "description": "解析 src/index.js\n>> yarn babel src/index.js -d one-day-bundler/10-module-graph/modules\n\n```\n# react\n# react-dom\n# ./HelloWorld\n```",
+      "selection": {
+        "start": {
+          "line": 6,
+          "character": 3
+        },
+        "end": {
+          "line": 8,
+          "character": 17
+        }
+      },
+      "line": 5
+    },
+    {
+      "file": "webpack-meetup-2018-05/README.md",
+      "line": 9,
+      "description": "将 react-bundle 复制到目录下\n>> cp react-bundle/dist/react-bundle.js one-day-bundler/10-module-graph/modules/react-bundle.js"
+    },
+    {
+      "file": "webpack-meetup-2018-05/README.md",
+      "line": 10,
+      "description": "babel转译 HelloWorld\n>> yarn babel src/HelloWorld.js -d one-day-bundler/10-module-graph/modules"
+    },
+    {
+      "file": "webpack-meetup-2018-05/README.md",
+      "line": 24,
+      "description": ">> yarn babel src/BigText.js -d one-day-bundler/10-module-graph/modules"
+    },
+    {
+      "file": "webpack-meetup-2018-05/README.md",
+      "line": 25,
+      "description": ">> yarn babel src/Lazy.js -d one-day-bundler/10-module-graph/modules "
+    }
+  ]
+}
