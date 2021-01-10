@@ -116,7 +116,7 @@ Function.prototype.bind1 = function (ctx, ...args) {
 
 /* curry */
 const curry = (fn, arity = fn.length, ...args) =>
-  arity <= args.length ? fn(...args) : (...arg) => curry(fn, arity, ...args, arg)
+  arity <= args.length ? fn(...args) : (...arg) => curry(fn, arity, ...args, ...arg)
 
 console.log(curry(Math.pow)(2)(10)); // 1024
 console.log(curry(Math.min, 3)(10)(50)(2)); // 2
