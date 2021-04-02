@@ -1,4 +1,4 @@
-const e = require("express");
+// const e = require("express");
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const log = _ => console.log(_)
@@ -18,7 +18,7 @@ createFlow([
 });
 
 // 需要按照 a,b,延迟1秒,c,延迟1秒,d,e, done 的顺序打印
-/* function createFlow(effects = []) {
+function createFlow(effects = []) {
   return {
     run: (cb) => effects.reduce((promise, next) => {
       if(Array.isArray(next)) return promise.then(createFlow(next).run)
@@ -26,12 +26,12 @@ createFlow([
       else return promise.then(next)
     }, Promise.resolve()).then(cb)
   }
-} */
+}
 
-function flat (arr, depth = 1) {
-  return arr.reduce((a, v) => a.concat(depth > 1 
-    && Array.isArray(v) ? flat(v, depth - 1) : v), [])
-} 
+// function flat (arr, depth = 1) {
+//   return arr.reduce((a, v) => a.concat(depth > 1 
+//     && Array.isArray(v) ? flat(v, depth - 1) : v), [])
+// } 
 
 
 function createFlow (effects = []) {
@@ -87,7 +87,7 @@ function compose (middleware) {
   }
 }
 
-/* function createFlow(handlers) {
+function createFlow(handlers) {
   return {
     effects: handlers.map(item => item.effects ? item.effects : item).flat(),
     results: [],
@@ -105,7 +105,7 @@ function compose (middleware) {
       callback(this.results)
     }
   }
-} */
+}
 
 /* function createFlow(effects) {
   return {
