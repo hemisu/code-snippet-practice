@@ -4,7 +4,7 @@ const jsonFiles = [
   './a.json',
   './b.json',
   './c.json',
-]
+]’
 
 function requireJson(jsonFile) {
   const content = fs.readFileSync(jsonFile)
